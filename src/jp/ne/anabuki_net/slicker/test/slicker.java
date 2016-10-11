@@ -32,12 +32,19 @@ public class slicker extends BasicGame implements KeyListener{
 	@Override public void update(GameContainer gc, int delta) throws SlickException{
 		float move=SPEED*delta;
 		Input input=gc.getInput();
-		if(input.isKeyDown(input.KEY_LEFT)) x-=move;
-		else if(input.isKeyDown(input.KEY_RIGHT)) x+=move;
+		int moused=0;
+		if(input.isMouseButtonDown(input.MOUSE_LEFT_BUTTON)||input.isMouseButtonDown(input.MOUSE_RIGHT_BUTTON))moused++;
+		if(input.isMousePressed(input.MOUSE_LEFT_BUTTON)||input.isMousePressed(input.MOUSE_RIGHT_BUTTON))moused++;
+		int mx=input.getAbsoluteMouseX();
+		int my=input.getAbsoluteMouseY();
+		if(input.isKeyDown(Input.KEY_LEFT)) x-=move;
+		else if(input.isKeyDown(Input.KEY_RIGHT)) x+=move;
 
-		if(input.isKeyDown(input.KEY_UP)) y-=move;
-		else if(input.isKeyDown(input.KEY_DOWN)) y+=move;
-
+		if(input.isKeyDown(Input.KEY_UP)) y-=move;
+		else if(input.isKeyDown(Input.KEY_DOWN)) y+=move;
+		double fric=0;
+		if(moused==1)fric=0.01;else if(moused==2)fric=0.5;
+		x+=(mx-x)*fric;y+=(my-y)*fric;
 	}
 
 	public void render(GameContainer container, Graphics g) throws SlickException{
