@@ -21,6 +21,7 @@ public class slicker extends BasicGame implements KeyListener{
 		try{
 			AppGameContainer app=new AppGameContainer(new slicker());
 			app.setDisplayMode(800, 600, false);
+			app.setTargetFrameRate(60);
 			app.start();
 		}catch(SlickException e){
 			e.printStackTrace();
@@ -43,7 +44,7 @@ public class slicker extends BasicGame implements KeyListener{
 		if(input.isKeyDown(Input.KEY_UP)) y-=move;
 		else if(input.isKeyDown(Input.KEY_DOWN)) y+=move;
 		double fric=0;
-		if(moused==1)fric=0.01;else if(moused==2)fric=0.5;
+		if(moused==1)fric=0.1;else if(moused==2)fric=0.5;
 		x+=(mx-x)*fric;y+=(my-y)*fric;
 	}
 
