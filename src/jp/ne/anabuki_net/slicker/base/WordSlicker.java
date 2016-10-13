@@ -51,7 +51,7 @@ public class WordSlicker extends StateBasedGame{
 			AppGameContainer app=new AppGameContainer(new WordSlicker());
 			app.setDisplayMode(800,600, false);
 			app.setTargetFrameRate(60);
-			app.setClearEachFrame(false);
+			//app.setClearEachFrame(false);
 			app.setMinimumLogicUpdateInterval(0);
 			app.setMaximumLogicUpdateInterval(0);
 			app.setUpdateOnlyWhenVisible(false);

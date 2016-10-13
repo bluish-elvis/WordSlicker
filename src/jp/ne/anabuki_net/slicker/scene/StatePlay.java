@@ -10,16 +10,16 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class StateMainMenu extends BasicGameState{
+public class StatePlay extends BasicGameState{
 	/** This state's ID */
 	public static final int ID=1;
 	/** Log */
-	static Logger log=Logger.getLogger(StateMainMenu.class);
+	static Logger log=Logger.getLogger(StatePlay.class);
 	UnicodeFont ufont;
 	Image background;
 	Music titleMusic;
 
-	public StateMainMenu(){
+	public StatePlay(){
 
 	}
 
@@ -40,7 +40,7 @@ public class StateMainMenu extends BasicGameState{
 
 	@Override public int getID(){
 		// TODO Auto-generated method stub
-		return StateMainMenu.ID;
+		return StatePlay.ID;
 	}
 
 }
