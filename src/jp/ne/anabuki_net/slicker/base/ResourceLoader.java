@@ -12,7 +12,6 @@ import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.font.effects.ColorEffect;
 import org.newdawn.slick.font.effects.ShadowEffect;
 import org.newdawn.slick.openal.SoundStore;
-import jp.ne.anabuki_net.slicker.base.BGMStatus;
 import jp.ne.anabuki_net.slicker.base.SoundManager;
 
 /** 画像:
@@ -51,12 +50,13 @@ public class ResourceLoader{
 		log.debug(numBGMs+" BGMs found");
 
 		imgBackList=new LinkedList<Image>();
-
+		if(numBacks>0)
 		for(int i=0; i<numBacks; i++)
 			imgBackList.add(loadImage("res/graphics/back"+i+".png"));
 
 		// 音楽
 		bgm=new Music[numBGMs];
+		if(numBGMs>0)
 		if(WordSlicker.propConfig.getProperty("option.bgmpreload", false)==true)
 			for(int i=0; i<numBGMs; i++)
 				bgmLoad(i, false);
