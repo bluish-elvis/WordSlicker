@@ -25,23 +25,40 @@ public class MySQLConnector {
 	}
 
 	public static void main(String[] args) {
-		Statement stm;
-		String str = "test";
+		int getset_flag = 0;
+		String sql = "";
+		int uid = 0,
+			cid = 0,
+			Score = 0,
+			flowless = 0,
+			time = 0;
 		try {
-			stm = con.createStatement();
-			
-			int getset_flag = 0;
-			switch (getset_flag) {
 
-			case 1:
-				//
-				str = "";
-			case 2:
-				//
-				str = "";
-			}
-			
-			String sql = str;
+PreparedStatement ps = con.prepareStatement("select count(*) from record where UID=? and CID=?;");
+	ps.setInt(1,uid);
+	ps.setInt(1,cid);
+		ResultSet rs = ps.executeQuery();
+			getset_flag = rs.getInt(1);
+			if(getset_flag>0){
+				sql="update record set "
+						+ "Score =? "
+						+ "time =? "
+						+ "flowless =?;";
+				ps.setInt(10,Score);
+				ps.setInt(10,time);
+				ps.setInt(1,flowless);
+			}else{
+				sql = "insert into "
+						+ "record(UID, CID, Score, time, floless) "
+						+ "values(?,?,?,?,?);";
+				ps.setInt(1,cid);
+				ps.setInt(1,uid);
+				ps.setInt(10,Score);
+				ps.setInt(10,time);
+				ps.setInt(1,flowless);
+			};
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate(sql);
 
 		} catch (SQLException e) {
 			System.out.println("MySQLに接続できませんでした。");
