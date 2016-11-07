@@ -4,11 +4,11 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
-public class UITextbox{
+public class UIHeader{
 	String value="";
 	int x,y,width,height;
 	boolean password;
-	UITextbox(int x,int y,int w, int h, boolean p){
+	UIHeader(int x,int y,int w, int h, boolean p){
 		this.x=x;this.y=y;this.width=w;this.height=h;
 		this.password=p;
 	}
