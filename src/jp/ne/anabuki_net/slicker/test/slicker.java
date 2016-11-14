@@ -34,8 +34,7 @@ public class slicker extends BasicGame implements KeyListener{
 		float move=SPEED*delta;
 		Input input=gc.getInput();
 		int moused=0;
-		if(input.isMouseButtonDown(input.MOUSE_LEFT_BUTTON)||input.isMouseButtonDown(input.MOUSE_RIGHT_BUTTON))moused++;
-		if(input.isMousePressed(input.MOUSE_LEFT_BUTTON)||input.isMousePressed(input.MOUSE_RIGHT_BUTTON))moused++;
+		
 		int mx=input.getAbsoluteMouseX();
 		int my=input.getAbsoluteMouseY();
 		if(input.isKeyDown(Input.KEY_LEFT)) x-=move;
