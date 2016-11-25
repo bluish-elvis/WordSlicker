@@ -10,7 +10,7 @@ import org.newdawn.slick.gui.GUIContext;
 public class UIToggleButton extends UISimpleButton{
 	private boolean value;
 
-	UIToggleButton(GameContainer c, int x, int y, int w, int h, String t){
+	public UIToggleButton(GameContainer c, int x, int y, int w, int h, String t){
 		super(c, x, y, w, h,t,new ComponentListener(){
 			@Override public void componentActivated(AbstractComponent source){
 				

@@ -8,26 +8,31 @@ import org.newdawn.slick.gui.ComponentListener;
 import org.newdawn.slick.gui.GUIContext;
 
 public class UISimpleButton extends UIParts{
-
 	String text;
-	boolean moused;
 
-	UISimpleButton(GameContainer c, int x, int y, int w, int h, String t,ComponentListener l){
-		super(c, x, y, w, h);
-		addListener(l);
+	public UISimpleButton(GameContainer c, int x, int y, int w, int h, String t, ComponentListener l){
+		super(c, x, y, w, h, l);
 		text=t;
+		visible=true;
 	}
-	public void update(GameContainer gc, int delta) throws SlickException{
-		Input input=gc.getInput();
-		int mx=input.getAbsoluteMouseX();
-		int my=input.getAbsoluteMouseY();
-		if(mx>=x&&mx<=(x+width)&&my>=y&&my<=(y+height)){
-			if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) moused=true;
-			if(moused&&!input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)){
-				moused=false;
-				// TODO do a listeners event
-			}
+
+	@Override public void mouseReleased(int button, int x, int y){
+		if(listeners.size()>0&&visible&&x>this.x&&x<(this.x+this.width)
+			&&y>this.y&&y<(this.y+this.height)){
+			notifyListeners();
+			consumeEvent();
 		}
+
+	}
+
+	@Override public void mouseMoved(int oldx, int oldy, int newx, int newy){
+
+		if(newx>this.x&&newx<(this.x+this.width)
+			&&newy>this.y&&newy<(this.y+this.height))
+			over=true;
+
+		else
+			over=false;
 	}
 
 	@Override public void render(GUIContext c, Graphics g) throws SlickException{
