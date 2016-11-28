@@ -5,7 +5,7 @@ import java.sql.*;
 public class MySQLConnector {
 	static Connection con = null;
 
-	MySQLConnector() {
+	public MySQLConnector() {
 		try {
 			// JDBCドライバのロード - JDBC4.0（JDK1.6）以降は不要
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -24,12 +24,17 @@ public class MySQLConnector {
 			 */
 	}
 
-	public static void main(String[] args) {
+	public static void sendscore(
+			int uid,
+			int cid,
+			int Score,
+			int flawless,
+			int time) {
 		
 		Connection con = null;
 		
 		//testここから
-		
+/*		
 		try {
 				// JDBCドライバのロード - JDBC4.0（JDK1.6）以降は不要
 				Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -42,16 +47,16 @@ public class MySQLConnector {
 			} catch (SQLException e) {
 				System.out.println("MySQLに接続できませんでした。");
 			}
-		
+*/		
 		//test用ここまで
 		
 		int getset_flag = 0;
 		String sql = "";
-		int uid = 0,
+		/*int uid = 0,
 			cid = 0,
 			Score = 0,
 			flowless = 0,
-			time = 0;
+			time = 0;*/
 		try {
 
 PreparedStatement ps = con.prepareStatement("select count(*) from record where UID=? and CID=?;");
@@ -67,7 +72,7 @@ PreparedStatement ps = con.prepareStatement("select count(*) from record where U
 				ps = con.prepareStatement(sql);
 				ps.setInt(1,Score);
 				ps.setInt(2,time);
-				ps.setInt(3,flowless);
+				ps.setInt(3,flawless);
 				ps.setInt(4,uid);
 				ps.setInt(5,cid);
 			}else{
@@ -77,7 +82,7 @@ PreparedStatement ps = con.prepareStatement("select count(*) from record where U
 				ps.setInt(2,uid);
 				ps.setInt(3,Score);
 				ps.setInt(4,time);
-				ps.setInt(5,flowless);
+				ps.setInt(5,flawless);
 			};
 			ps.executeUpdate();
 

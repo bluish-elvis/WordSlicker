@@ -1,5 +1,8 @@
 package jp.ne.anabuki_net.slicker.scene;
 
+
+import jp.ne.anabuki_net.slicker.saver.MySQLConnector;
+
 import org.apache.log4j.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -35,7 +38,9 @@ public class StatePlay extends BasicGameState{
 
 	@Override public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException{
 		// TODO Auto-generated method stub
-
+		int uid=0,cid=0,score=0,flawles=0,time=0; 
+		MySQLConnector ScoreUpdate = new MySQLConnector();
+		ScoreUpdate.sendscore(uid,cid,score,flawles,time);
 	}
 
 	@Override public int getID(){

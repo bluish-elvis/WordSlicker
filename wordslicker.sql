@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `records` (
   `CID` int(6) NOT NULL,
   `Score` int(64) NOT NULL,
   `time` int(8) NOT NULL,
-  `flowless` int(3) NOT NULL
+  `flawless` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
