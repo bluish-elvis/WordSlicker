@@ -13,7 +13,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class StatePlay extends BasicGameState{
+public class StatePlay extends BaseGameState{
 	/** This state's ID */
 	public static final int ID=1;
 	/** Log */
@@ -31,12 +31,12 @@ public class StatePlay extends BasicGameState{
 
 	}
 
-	@Override public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException{
+	@Override public void renderImpl(GameContainer container, StateBasedGame game, Graphics g) throws SlickException{
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException{
+	@Override public void updateImpl(GameContainer container, StateBasedGame game, int delta) throws SlickException{
 		// TODO Auto-generated method stub
 		int uid=0,cid=0,score=0,flawles=0,time=0; 
 		MySQLConnector ScoreUpdate = new MySQLConnector();
