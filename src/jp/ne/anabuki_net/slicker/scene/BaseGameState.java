@@ -68,8 +68,8 @@ public abstract class BaseGameState extends BasicGameState{
 	 * @param game StateBasedGame
 	 * @param g Graphics
 	 * @throws SlickException Something failed */
-	void renderImpl(GameContainer container, StateBasedGame game, Graphics g) throws SlickException{}
-
+	void renderImpl(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
+	}
 	/** Update the game. Your code will be here, unless if you want do something
 	 * special.
 	 * @param container GameContainer
