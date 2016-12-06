@@ -1,5 +1,6 @@
 package jp.ne.anabuki_net.slicker.gui;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -32,7 +33,9 @@ public class UIToggleButton extends UISimpleButton{
 
 	@Override public void render(GUIContext c, Graphics g) throws SlickException{
 		// TODO Auto-generated method stub
-		//if(load)
-		super.render(c, g);
+		//if(value)
+		g.setColor(Color.white);
+		g.drawRect(x, y, width, height);
+		g.drawString(text, x, y);
 	}
 }
