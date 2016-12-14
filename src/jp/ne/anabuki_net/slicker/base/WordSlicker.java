@@ -9,8 +9,7 @@ import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
-import jp.ne.anabuki_net.slicker.scene.StateLoadTitle;
-import jp.ne.anabuki_net.slicker.scene.StateMainMenu;
+import jp.ne.anabuki_net.slicker.scene.*;
 import jp.ne.anabuki_net.slicker.base.CustomProperties;
 
 /** 起動部分
@@ -36,9 +35,10 @@ public class WordSlicker extends StateBasedGame{
 	 * org.newdawn.slick.state.StateBasedGame#initStatesList(org.newdawn.slick.
 	 * GameContainer) */
 	@Override public void initStatesList(GameContainer gc) throws SlickException{
-		// TODO Auto-generated method stu
+		// TODO List up States
 		this.addState(new StateLoadTitle());
 		this.addState(new StateMainMenu());
+		this.addState(new StatePlay());
 	}
 
 	/** @param args */

@@ -54,6 +54,6 @@ public class slicker extends BasicGame implements KeyListener{
 
     @Override
     public void keyPressed(int key, char c) {
-    	str=Input.getKeyName(key);
+    	str=""+c;
     }
 }
