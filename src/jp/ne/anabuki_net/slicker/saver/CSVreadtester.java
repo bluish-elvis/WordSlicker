@@ -11,7 +11,7 @@ public class CSVreadtester{
 
 	public static void main(String[] args){
 		try{
-			File csv=new File("writers.csv"); // CSVデータファイル
+			File csv=new File("test.csv"); // CSVデータファイル
 
 			BufferedReader br=new BufferedReader(new FileReader(csv));
 
